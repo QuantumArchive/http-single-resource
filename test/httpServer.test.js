@@ -69,6 +69,18 @@ describe('http single resource promise server', () => {
     //         });
     // });
 
+    it('wants to see if PUT works', done => {
+        request
+            .put('/cats/0')
+            .send('{"id":"felix","age":19,"color":"orange"}')
+            .end((err, res) => {
+                if (err) return done(err);
+                else {
+                    done();
+                };
+            });
+    });
+
     it('wants to see if POST works', done => {
         request
             .post('/cats')
